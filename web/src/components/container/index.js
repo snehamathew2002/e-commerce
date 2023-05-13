@@ -1,7 +1,9 @@
+import { useEffect,useState } from "react"
 import Product from "./products"
 import {
     Img1,Img2,Img3,Img4,Img5,Img6,Img7,Img8,Img9,Img10,Img11,Img12
 } from './images'
+import CreateProduct from "./create-product"
 const data = [
     {
         name: "Book Shelf",
@@ -65,7 +67,13 @@ const data = [
     }
 ]
 const Products = () => { 
-    return( 
+    const [products ,setProduct] = useState(data)
+    const createProducts = (p) => {
+        setProduct([...products,p])
+    }
+    return(
+        <>
+            <CreateProduct createProduct={createProducts}/>
             <div className="row">
                 {data.map(item => {
                     return(
@@ -73,6 +81,7 @@ const Products = () => {
                     )
                 })}
             </div>
+        </> 
             )
 }
 

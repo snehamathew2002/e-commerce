@@ -75,7 +75,7 @@ const Products = () => {
         <>
             <CreateProduct createProduct={createProducts}/>
             <div className="row">
-                {data.map(item => {
+                {products.map(item => {
                     return(
                         <Product item={item}/>
                     )
